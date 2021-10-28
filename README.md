@@ -1,24 +1,120 @@
-# json-server-base
+# Atividade 5A04
 
-Esse é o repositório com a base de JSON-Server + JSON-Server-Auth já configurada, feita para ser usada no desenvolvimento das API's nos Capstones do Q2.
+Essa é uma fake api criada para a atividade 5A04 da Kenzie Academy Brasil
 
 ## Endpoints
 
-Assim como a documentação do JSON-Server-Auth traz (https://www.npmjs.com/package/json-server-auth), existem 3 endpoints que podem ser utilizados para cadastro e 2 endpoints que podem ser usados para login.
+Nesta api voce tera acesso a 4 Endpoits
+<ol>
+<li>Cadastro</li>
+<li>Login</li>
+<li>Hobies</li>
+<li>Sites Favoritos</li>
+
+</ol>
 
 ### Cadastro
+O cadastro pode ser feito atravez da requisição com:
 
 POST /register <br/>
-POST /signup <br/>
-POST /users
+e no corpo da requisição deve ser desta maneira:
 
-Qualquer um desses 3 endpoints irá cadastrar o usuário na lista de "Users", sendo que os campos obrigatórios são os de email e password.
-Você pode ficar a vontade para adicionar qualquer outra propriedade no corpo do cadastro dos usuários.
+{
 
+	"email":"larissa@emailcom,
+
+	"password":"123456",
+
+	"name":"larissa",
+
+	"age":24
+
+}
 
 ### Login
+O login pode ser feito atravez dessa requisição:
 
 POST /login <br/>
-POST /signin
 
-Qualquer um desses 2 endpoints pode ser usado para realizar login com um dos usuários cadastrados na lista de "Users"
+e no corpo da requisição deve ser desta maneira :
+
+{
+
+	"email":"larissa@email.com",
+	"password":"123456"
+
+}
+### Hobbie
+Os hobbie podem ser lidos ou escritos somente pelo usuario logado, a leitura pode ser atravez da requisição:
+
+GET /hobbie
+
+essa requisição nao precisa de um corpo mas precisa de um token  que é obitdo quando logado:
+
+{
+
+    headers:
+                {
+                 authorization: Bearer 
+                 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM0NjUxMjQwLCJqdGkiOiIzNTQxMmM0NGM0NjI0ZjZhOTU3NTIzNGJlNzJiMmQ0ZSIsInVzZXJfaWQiOjE5fQ.kFFi1u2rRMG49LUeVOln18ViRtG_XioJKa2-H-ZNi3c
+
+                }
+
+}
+
+ja escrita devera ser feita atravez da requisição :
+
+POST /hobbie
+essa requisição necessita de um corpo que deve ser assim :
+
+
+{
+	"Nickname":"Daniel",
+	"hobbie_name":"Jogar online",
+	"description":"Eu gosto de jogar nas horas vagas tanto no camputador ou em consoles"
+	
+}
+e deve ter um token:
+
+
+{
+
+    headers:
+                {
+                 authorization: Bearer 
+                 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM0NjUxMjQwLCJqdGkiOiIzNTQxMmM0NGM0NjI0ZjZhOTU3NTIzNGJlNzJiMmQ0ZSIsInVzZXJfaWQiOjE5fQ.kFFi1u2rRMG49LUeVOln18ViRtG_XioJKa2-H-ZNi3c
+
+                }
+
+}
+### Sites Favoritos
+
+Os Sites favoritos podem ser lidos ou escritos porem a leitura pode ser feita sem a necessidade de um token ja a escrita necessita do token, a leitura pode ser feita atravez da requisição:
+
+GET /favsites
+
+esse requisição nao necessita de um corpo
+ja a leitura pode ser feita atravez da requisição 
+
+POST /favsites
+essa requisição necessita de um corpo que deve ser assim :
+
+{
+
+	"nickname":"larissa",
+	"name":"youtube",
+	"link":"https://www.youtube.com/"
+}
+e deve ter um token:
+
+{
+
+    headers:
+                {
+                 authorization: Bearer 
+                 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM0NjUxMjQwLCJqdGkiOiIzNTQxMmM0NGM0NjI0ZjZhOTU3NTIzNGJlNzJiMmQ0ZSIsInVzZXJfaWQiOjE5fQ.kFFi1u2rRMG49LUeVOln18ViRtG_XioJKa2-H-ZNi3c
+
+                }
+
+}
+
